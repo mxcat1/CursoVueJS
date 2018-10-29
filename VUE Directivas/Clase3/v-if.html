@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-IF</title>
+</head>
+<body>
+    <main id="app">
+        <input type="number" name="nbdatos" id="nbdatos" v-model="datos">
+        <h1 v-if="datos == 1">El dia esta muy nublado</h1>
+        <h1 v-else-if="datos == 2">El dia esta muy lluvioso</h1>
+        <h1 v-else>El dia muy soleado</h1>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el:'#app',
+            data:{
+                datos:0
+            }
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-BIND</title>
+</head>
+<body>
+    <main id="app">
+        <input type="text" name="txtbind" id="txtbind" v-model="datos">
+        <select name="cbalign" id="cbalign" v-model="datos">
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+        </select>
+        <input type="radio" name="rbalign" id="rbcenter" value="center" v-model="datos">
+        <label for="rbcenter">Center</label>
+        <input type="radio" name="rbalign" id="rbleft" value="left" v-model="datos">
+        <label for="rbleft">Left</label>
+        <input type="radio" name="rbalign" id="rbright" value="right" v-model="datos">
+        <label for="rbright">Right</label>
+
+        <div style="width: 500px">
+            <p align="center" :align="datos">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+                aliquam aliquid dignissimos, placeat quaerat quos repudiandae
+                velit vero voluptatum! Labore laborum laudantium maiores vel.
+                Consectetur consequatur dolorum minima nobis!
+                lorem
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+                aliquam aliquid dignissimos, placeat quaerat quos repudiandae
+                velit vero voluptatum! Labore laborum laudantium maiores vel.
+                Consectetur consequatur dolorum minima nobis!
+                lorem
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+                aliquam aliquid dignissimos, placeat quaerat quos repudiandae
+                velit vero voluptatum! Labore laborum laudantium maiores vel.
+                Consectetur consequatur dolorum minima nobis!
+                lorem
+            </p>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script !src="">
+        let app = new Vue({
+            el:'#app',
+            data:{
+                datos:''
+            }
+        })
+    </script>
+</body>
+</html>
