@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Computed</title>
+    <style>
+        .femenino{
+            color: pink;
+            font-family: "Lucida Sans", 'lucida sans-serif', Geneva,Verdana,sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .masculino{
+            color: blue;
+            font-family: "Times New Roman",Times,serif;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <main id="app">
+        <label for="nbedad">Escribe tu Edad</label>
+        <input type="number" name="nbedad" id="nbedad" v-model="edad">
+        <br><br>
+        <label for="txtnombre">Escribe tu nombre</label>
+        <input type="text" name="txtnombre" id="txtnombre" v-model="nombre">
+        <br><br>
+        <label for="txtapellidop">Apellido Paterno</label>
+        <input type="text" name="txtapellido" id="txtapellidop" v-model="apellidoP">
+        <br><br>
+        <label for="txtapellidoM">Apellido Materno</label>
+        <input type="text" name="txtapellidoM" id="txtapellidoM" v-model="apellidoM">
+
+        <div v-html="rangoedad">
+
+        </div>
+        <br>
+        <label :class="genero">{{concatenar}}</label>
+
+        <br>
+        <input type="radio" v-model="gen" value="f">Femenino
+        <input type="radio" v-model="gen" value="m">Masculino
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script !src="">
+        let app = new Vue({
+            el:'#app',
+            data:{
+                edad:0,
+                nombre:'Christian',
+                apellidoP:'Vilca',
+                apellidoM:'Apaza',
+                gen:'m'
+            },
+            computed:{
+                rangoedad:function () {
+                    if (this.edad >= 18){
+                        return '<h1>Eres mayor de edad</h1>'
+                    }else{
+                        return '<h2>Eres Menor de edad</h2>'
+                    }
+                },
+                concatenar:function () {
+                    return this.nombre +' '+this.apellidoP + ' ' + this.apellidoM
+                },
+                genero:function () {
+                    return  this.gen === 'f' ? 'femenino':'masculino'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

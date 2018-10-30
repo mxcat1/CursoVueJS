@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Metodos</title>
+</head>
+<body>
+    <main id="app">
+        <h1>Calculadora</h1>
+        <label for="nb1">Valor 1</label>
+        <input type="number" name="nb1" id="nb1" v-model="v1" @change="operacion">
+        <label for="nb2">Valor 2</label>
+        <input type="number" name="nb2" id="nb2" v-model="v2" @change="operacion">
+        <br>
+        <hr>
+        <br>
+        <input type="radio" name="rbope" id="rbsum" v-model="ope" value="suma" @change="operacion">
+        <label for="rbsum">SUMA</label>
+        <input type="radio" name="rbope" id="rbres" v-model="ope" value="resta" @change="operacion">
+        <label for="rbres">RESTA</label>
+        <input type="radio" name="rbope" id="rbmulti" v-model="ope" value="multi" @change="operacion">
+        <label for="rbmulti">MULTIPLICACION</label>
+        <input type="radio" name="rbope" id="rbdiv" v-model="ope" value="divi" @change="operacion">
+        <label for="rbdiv">DIVISION</label>
+        <br>
+        <hr>
+        <br>
+        <button type="button" v-on:click="operacion">Calcular</button>
+        <label>{{res}}</label>
+
+
+
+    </main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script !src="">
+    let app = new Vue({
+        el:'#app',
+        data:{
+            v1:0,
+            v2:0,
+            res:0,
+            ope:'suma'
+        },
+        methods:{
+            operacion:function () {
+                switch (this.ope) {
+                    case 'suma':
+                        this.res=parseInt(this.v1)+parseInt(this.v2)
+                        break
+                    case 'resta':
+                        this.res=this.v1-this.v2
+                        break
+                    case 'multi':
+                        this.res=this.v1*this.v2
+                        break
+                    case 'divi':
+                        this.res=this.v1/this.v2
+                        break
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
