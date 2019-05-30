@@ -9,5 +9,6 @@
     <orderEntry type="library" name="Chart" level="application" />
     <orderEntry type="library" name="@types/jspdf" level="application" />
     <orderEntry type="library" name="Jquery" level="application" />
+    <orderEntry type="library" name="vue" level="application" />
   </component>
 </module>

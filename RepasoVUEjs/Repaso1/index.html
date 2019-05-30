@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Repaso 1 Vuejs</title>
+</head>
+<body >
+    <main id="app">
+        <h1>{{mensaje}}</h1>
+        <input type="text" name="nombre" id="txtnom" v-model="nombres">
+        <input type="number" name="edad" id="nbedad" v-model="edads">
+        <button @click="agregarpersona" >agregar</button>
+        <ul>
+            <li v-for="item of lista1">
+                {{item}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="item1 of listaobj">
+                {{item1.nombre}} => <span v-if="item1.edad >20">{{item1.edad}}</span>
+            </li>
+        </ul>
+    </main>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                mensaje:'Hola mundo con mi Vue',
+                lista1:[1,2,3,4,5],
+                listaobj:[
+                    {
+                        nombre:'Christian',
+                        edad:22
+                    },
+                    {
+                        nombre:'Julio',
+                        edad:21
+                    },
+                    {
+                        nombre:'Julio',
+                        edad:19
+                    }
+                ],
+                nombres:'',
+                edads:0
+            },
+            methods:{
+                agregarpersona(){
+                    this.listaobj.push({
+                        nombre:this.nombres,
+                        edad:this.edads
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
